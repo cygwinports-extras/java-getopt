@@ -1,0 +1,14 @@
+inherit ant
+
+DESCRIPTION="Java port of glibc getopt(3)"
+HOMEPAGE="http://www.urbanophile.com/arenn/hacking/getopt/"
+SRC_URI="http://www.urbanophile.com/arenn/hacking/getopt/${P}.tar.gz"
+SRC_DIR=.
+
+CYGPORT_USE_UNSTABLE_API=1
+src_unpack_hook() {
+	mv gnu/getopt/buildx.xml build.xml
+}
+
+ANT_INSTALL_JARS="build/lib/gnu.getopt.jar"
+ANT_INSTALL_JAVADOC="build/api"
